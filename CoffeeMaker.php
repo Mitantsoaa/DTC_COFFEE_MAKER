@@ -25,9 +25,10 @@
         public function prepare(water $water,coffee $coffee)
         {
             if($isStarted === true){
-                $water->setVolume($this->water);
-                $coffee->setQuantity($this->coffee);
+                $water->setVolume($water->getVolume() - $this->water);
+                $coffee->setQuantity($coffee->getQuantity() - $this->coffee);
                 $expresso = $water->getVolume() + $coffee->getQuantity();
+                $this->putOff();
 
                 return 'Voici votre café'.$expresso;
             }else{
