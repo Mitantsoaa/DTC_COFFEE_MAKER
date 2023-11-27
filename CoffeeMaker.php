@@ -10,9 +10,13 @@
 
         public function startCoffee()
         {
-            $this->isStarted = true;
+            if($this->getWater() > 0 && $this->getCoffee() > 0){
+                $this->isStarted = true;
 
-            return $this;
+                return $this;
+            }else{
+                throw new Exception('Ajouter les ingredients');
+            }
         }
 
         public function putOff()
@@ -36,5 +40,31 @@
             }
         }
 
+        public function addWater(float $waterV)
+        {
+            $this->water = $waterV;
+
+            return $this;
+        }
+
+        public function addCoffee(float $coffee)
+        {
+            $this->coffee = $coffee;
+
+            return $this;
+        }
+
+        public function getWater()
+        {
+            return $this->water;
+        }
+
+        public function getCoffee()
+        {
+            return $this->coffee;
+        }
 
     }
+
+    $cafe = new CoffeeMaker();
+    $cafe->startCoffee();
