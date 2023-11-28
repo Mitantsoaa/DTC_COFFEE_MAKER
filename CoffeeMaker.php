@@ -3,8 +3,8 @@
 
     class CoffeeMaker
     {
-        public string $water;
-        public string $coffee;
+        public float $water;
+        public float $coffee;
         public bool $isStarted;
 
 
@@ -67,4 +67,9 @@
     }
 
     $cafe = new CoffeeMaker();
+    $cafe->addWater(2);
+    $cafe->addCoffee(2);
     $cafe->startCoffee();
+    $water =  new water();
+    $coffee = new coffee();
+    $cafe->prepare($water->setVolume(5),$coffee->setQuantity(2));
